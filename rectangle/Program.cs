@@ -59,7 +59,7 @@ namespace rectangle
             }
 
             Console.Clear();
-
+            Console.WriteLine("Нажмите стрелку вправо/влево/вниз/вверх");
             int startX = 0;
             int startY = 0;
 
@@ -113,7 +113,6 @@ namespace rectangle
                         Console.SetCursorPosition(i + startX, y + startY);
                         Console.WriteLine("*");
                         Console.SetCursorPosition(0,0);
-
                     }
                 }
              }
