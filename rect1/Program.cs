@@ -59,24 +59,22 @@ namespace rectangle
             }
 
             Console.Clear();
-            Console.WriteLine("Нажмите стрелку вправо/влево/вниз/вверх");
-
-            for (int y = 0; y < high; y++)
-            {
-                for (int i = 0; i < width; i++)
-                {
-                    Console.SetCursorPosition(i + startX, y + startY);
-                    Console.WriteLine("*");
-                    Console.SetCursorPosition(0, 0);
-                }
-
-            }
             
 
-           int startX = 0;
+            int startX = 0;
             int startY = 0;
 
 
+            for (int y = 0; y < high; y++)
+            {
+               for (int i = 0; i < width; i++)
+                { 
+                    Console.SetCursorPosition(i , y );
+                    Console.WriteLine("*");
+                }
+            }
+
+                        
             for (; ; )
 
             {
@@ -84,64 +82,86 @@ namespace rectangle
                 int xMax = Console.WindowWidth - width;
 
                 ConsoleKey keyPressed = Console.ReadKey(true).Key;
-
+                
                 if (keyPressed == ConsoleKey.LeftArrow)
                 {
+                    if (startX < 0) startX = 0;
+
+                    for (int y = 0; y < high; y++)
+                    {
+                        Console.SetCursorPosition(startX, +startY + y);
+                        Console.WriteLine("*");
+                        Console.SetCursorPosition(startX + width, y + startY);
+                        Console.WriteLine(" ");
+                    }
                     startX--;
-                    if (startX <0 ) startX=0;
+                    if (startX < 0) startX = 0;
                 }
 
                 if (keyPressed == ConsoleKey.RightArrow)
                 {
+
+                    if (startX > xMax) { startX = xMax - 1; break; }
+
+                   for (int i = 0; i < high; i++)
+                 {
+                        if (startX < xMax)
+                        {
+                            Console.SetCursorPosition(startX, startY + i);
+                            Console.WriteLine(" ");
+                            Console.SetCursorPosition(startX + width, i + startY);
+                            Console.WriteLine("*");
+                        }
+                        else break;       
+                 }
                     startX++;
+                    if (startX > xMax) startX = xMax;
 
-                    if (startX > xMax) startX--;
-
-                    for (int y = 0; y < high; y++)
-                    {
-                        Console.SetCursorPosition(startX, y + startY);
-                        Console.WriteLine(" ");
-                        Console.SetCursorPosition(startX+width, y + startY);
-                        Console.WriteLine("*");
-                        Console.WriteLine("*");
-                    
-                    }
-
-
+                    Console.SetCursorPosition(20,0);
+                    Console.WriteLine($"startX = {startX} startY = {startY} high= {high}");
                 }
-                
+
                 if (keyPressed == ConsoleKey.UpArrow)
                 {
+
+                    for (int i = 0; i < width; i++)
+                    {
+                         Console.SetCursorPosition (startX+i, startY);
+                         Console.WriteLine("*");
+                         Console.SetCursorPosition(startX+i, startY + high);
+                         Console.WriteLine(" ");
+            }
+
                     startY--;
                     if (startY < 0) startY = 0;
-
                 }
 
+                               
                 if (keyPressed == ConsoleKey.DownArrow)
                 {
+                    for (int i = 0; i < width; i++)
+                    {
+                        Console.SetCursorPosition(i + startX, startY);
+                        Console.WriteLine(" ");
+                        Console.SetCursorPosition(i + startX, startY+high);
+                        Console.WriteLine("*");
+                    }
+
                     startY++;
-                    if (startY > yMax) startY=yMax;
+                    if (startY > yMax-1) startY = yMax-1;
+
+                    Console.SetCursorPosition(20, 0);
+                    Console.WriteLine($"startX = {startX} startY = {startY} ");
+                 
                 }
 
-
+                               
                 if (keyPressed == ConsoleKey.Escape)
                 {
                     break;
                 }
-
-                Console.Clear();
-
-                    for (int y = 0; y < high; y++)
-                {
-                        for (int i = 0; i < width; i++)
-                    { 
-                        Console.SetCursorPosition(i + startX, y + startY);
-                        Console.WriteLine("*");
-                        Console.SetCursorPosition(0,0);
-                    }
-                  
-                }
-             }
+                               
+            }
         }
 
     }
