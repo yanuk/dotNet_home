@@ -30,7 +30,10 @@ namespace rectangle
             {
                 Console.Clear();
                 Console.WriteLine($"Введите {str1}");
-                string str = Console.ReadLine();     // Проверка, введено ли число, а не буквы.
+                         
+                string str = Console.ReadLine();   
+                
+                // Проверка, введено ли число, а не буквы.
                 flag1 = CheckIfNumber(str);
 
                 if (flag1 == 1 && str != "")
@@ -42,6 +45,9 @@ namespace rectangle
         }
               static void Main(string[] args)
             {
+                   
+                   // Ввод ширины и высоты c c проверкой на цифры.
+                   
                    int width = InputOnlyNumber  ("ширину");
                    int high  = InputOnlyNumber ("высоту");
              

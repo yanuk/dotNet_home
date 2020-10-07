@@ -61,15 +61,15 @@ namespace rectangle
                     Console.WriteLine("*");
                 }
             }
-                      
-            
+
+
+            int yMax = Console.WindowHeight - high;
+            int xMax = Console.WindowWidth - width;
+
 
             for (; ; )
 
             {
-                int yMax = Console.WindowHeight - high;
-                int xMax = Console.WindowWidth - width;
-                
                 
                 //Проверка, какая нажата клавиша.
 
@@ -82,7 +82,11 @@ namespace rectangle
                     {
                         if (startX > xMax) startX = xMax;
                         if (startX < 1) startX = 1;
-                        Console.SetCursorPosition(startX, startY + y);
+                                               
+                        Console.SetCursorPosition(20, 0);
+                        Console.WriteLine($"startX = {startX} startY = {startY} ");
+
+                        Console.SetCursorPosition(startX-1, startY + y);
                         Console.WriteLine("*");
                         Console.SetCursorPosition(startX +width-1, y + startY);
                         Console.WriteLine(" ");
@@ -98,6 +102,10 @@ namespace rectangle
                    for (int i = 0; i < high; i++)
                  {
                         if (startX > (xMax - 1)) startX = xMax - 1;
+
+                        Console.SetCursorPosition(20, 0);
+                        Console.WriteLine($"startX = {startX} startY = {startY} ");
+
                         Console.SetCursorPosition(startX, startY + i);
                         Console.WriteLine(" ");
                         Console.SetCursorPosition((startX + width), (i + startY));
@@ -119,11 +127,14 @@ namespace rectangle
                     
                     for (int i = 0; i < width; i++)
                     {
+                        Console.SetCursorPosition(20, 0);
+                        Console.WriteLine($"startX = {startX} startY = {startY} ");
+
                         Console.SetCursorPosition (startX+i, startY);
                          Console.WriteLine("*");
                          Console.SetCursorPosition(startX+i, startY + high);
-                         Console.WriteLine(" ");
-            }
+                        Console.WriteLine(" ");
+                    }
 
                    startY--;
                    if (startY < 0) startY = 0;
@@ -140,7 +151,7 @@ namespace rectangle
                     }
 
                    startY++;
-                   if (startY > yMax-1) startY = yMax-1;
+                   if (startY > yMax-1) startY = yMax;
 
                     Console.SetCursorPosition(20, 0);
                     Console.WriteLine($"startX = {startX} startY = {startY} ");
