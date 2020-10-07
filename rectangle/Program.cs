@@ -19,49 +19,39 @@ namespace rectangle
             }
             //введено число
             return 1;
+               
         }
 
 
-        static void InputWidthHigh(ref int width, ref int high)
+        static int InputOnlyNumber (string str1)
         {
-            int flag1 = 0;
+            
+            int flag1 = 0, numberInt = 0;
 
             while (flag1 == 0)
             {
                 Console.Clear();
-                Console.WriteLine("Введите ширину");
+                Console.WriteLine($"Введите {str1}");
                 string str = Console.ReadLine();     // Проверка, введено ли число, а не буквы.
                 flag1 = CheckIfNumber(str);
 
                 if (flag1 == 1)
-                    width = int.Parse(str);
+                   numberInt = int.Parse(str);
                 else
                     flag1 = 0;
             }
-            while (flag1 == 1)
-            {
-                Console.Clear();
-                Console.WriteLine("Введите высоту");
-                string str = Console.ReadLine();     // Проверка, введено ли число, а не буквы.
-                flag1 = CheckIfNumber(str);
-
-                if (flag1 == 1)
-                {
-                    high = int.Parse(str);
-                    break;
-                }
-                else
-                    flag1 = 0;
-            }
+            return (numberInt);
         }
 
                 static void Main(string[] args)
             {
             int width = 0, high=0;
 
-            InputWidthHigh(ref width, ref high);
+            width = InputOnlyNumber  ("ширину");
+            high  = InputOnlyNumber ("высоту");
+             
 
-                Console.Clear();
+            Console.Clear();
 
                 int startX = 0, startY = 0;
 
@@ -112,6 +102,7 @@ namespace rectangle
                     //проверка на выход.
                     if (keyPressed == ConsoleKey.Escape)
                     {
+                    Console.Clear();
                         break;
                     }
                     Console.Clear();
