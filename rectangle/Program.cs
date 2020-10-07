@@ -19,10 +19,6 @@ namespace rectangle
             //введено число
             return 1;
         }
-
-
-
-
         static void Main(string[] args)
         {
             int width = 0;
@@ -57,16 +53,14 @@ namespace rectangle
                     break;
                 }
             }
-
-            Console.Clear();
-
-
+              Console.Clear();
+            
             int startX = 0;
             int startY = 0;
-
-
+            
             for (; ; )
             {
+                //Прорисовка прямоугольника.
                 for (int i = 0; i < width; i++)
                 {
                     for (int y = 0; y < high; y++)
@@ -80,8 +74,10 @@ namespace rectangle
                 int yMax = Console.WindowHeight - high;
                 int xMax = Console.WindowWidth - width;
 
-                ConsoleKey keyPressed = Console.ReadKey(true).Key;
+                //Проверка, какая нажата клавиша.
 
+                ConsoleKey keyPressed = Console.ReadKey(true).Key;
+                             
                 if (keyPressed == ConsoleKey.LeftArrow)
                 {
                     startX--;
@@ -91,7 +87,6 @@ namespace rectangle
                 if (keyPressed == ConsoleKey.RightArrow)
                 {
                     startX++;
-
                     if (startX > xMax) startX--;
                 }
 
@@ -99,7 +94,6 @@ namespace rectangle
                 {
                     startY--;
                     if (startY < 0) startY = 0;
-
                 }
 
                 if (keyPressed == ConsoleKey.DownArrow)
@@ -108,14 +102,13 @@ namespace rectangle
                     if (startY > yMax) startY = yMax;
                 }
 
-
+                //проверка на выход.
                 if (keyPressed == ConsoleKey.Escape)
                 {
                     break;
                 }
                 Console.Clear();
             }
-
         }
     }
 }
