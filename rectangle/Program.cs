@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 
 namespace rectangle
 {
@@ -55,31 +56,27 @@ namespace rectangle
                     high = int.Parse(str);
                     break;
                 }
-
             }
 
             Console.Clear();
-            Console.WriteLine("Нажмите стрелку вправо/влево/вниз/вверх");
 
-            for (int y = 0; y < high; y++)
-            {
-                for (int i = 0; i < width; i++)
-                {
-                    Console.SetCursorPosition(i + startX, y + startY);
-                    Console.WriteLine("*");
-                    Console.SetCursorPosition(0, 0);
-                }
 
-            }
-            
-
-           int startX = 0;
+            int startX = 0;
             int startY = 0;
 
 
             for (; ; )
-
             {
+                for (int i = 0; i < width; i++)
+                {
+                    for (int y = 0; y < high; y++)
+                    {
+                        Console.SetCursorPosition(i + startX, y + startY);
+                        Console.WriteLine("*");
+                    }
+                }
+
+                Console.SetCursorPosition(0, 0);
                 int yMax = Console.WindowHeight - high;
                 int xMax = Console.WindowWidth - width;
 
@@ -88,7 +85,7 @@ namespace rectangle
                 if (keyPressed == ConsoleKey.LeftArrow)
                 {
                     startX--;
-                    if (startX <0 ) startX=0;
+                    if (startX < 0) startX = 0;
                 }
 
                 if (keyPressed == ConsoleKey.RightArrow)
@@ -96,20 +93,8 @@ namespace rectangle
                     startX++;
 
                     if (startX > xMax) startX--;
-
-                    for (int y = 0; y < high; y++)
-                    {
-                        Console.SetCursorPosition(startX, y + startY);
-                        Console.WriteLine(" ");
-                        Console.SetCursorPosition(startX+width, y + startY);
-                        Console.WriteLine("*");
-                        Console.WriteLine("*");
-                    
-                    }
-
-
                 }
-                
+
                 if (keyPressed == ConsoleKey.UpArrow)
                 {
                     startY--;
@@ -120,7 +105,7 @@ namespace rectangle
                 if (keyPressed == ConsoleKey.DownArrow)
                 {
                     startY++;
-                    if (startY > yMax) startY=yMax;
+                    if (startY > yMax) startY = yMax;
                 }
 
 
@@ -128,21 +113,9 @@ namespace rectangle
                 {
                     break;
                 }
-
                 Console.Clear();
+            }
 
-                    for (int y = 0; y < high; y++)
-                {
-                        for (int i = 0; i < width; i++)
-                    { 
-                        Console.SetCursorPosition(i + startX, y + startY);
-                        Console.WriteLine("*");
-                        Console.SetCursorPosition(0,0);
-                    }
-                  
-                }
-             }
         }
-
     }
 }
