@@ -19,9 +19,7 @@ namespace rectangle
             }
             //введено число
             return 1;
-               
         }
-
 
         static int InputOnlyNumber (string str1)
         {
@@ -35,25 +33,21 @@ namespace rectangle
                 string str = Console.ReadLine();     // Проверка, введено ли число, а не буквы.
                 flag1 = CheckIfNumber(str);
 
-                if (flag1 == 1)
+                if (flag1 == 1 && str != "")
                    numberInt = int.Parse(str);
                 else
                     flag1 = 0;
             }
             return (numberInt);
         }
-
-                static void Main(string[] args)
+              static void Main(string[] args)
             {
-            int width = 0, high=0;
-
-            width = InputOnlyNumber  ("ширину");
-            high  = InputOnlyNumber ("высоту");
+                   int width = InputOnlyNumber  ("ширину");
+                   int high  = InputOnlyNumber ("высоту");
              
+                   Console.Clear();
 
-            Console.Clear();
-
-                int startX = 0, startY = 0;
+                   int startX = 0, startY = 0;
 
                 for (; ; )
                 {
