@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rectangle", "rectangle\rect
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rect1", "rect1\rect1.csproj", "{54A27405-1BFD-4CA9-A950-6DE70730D49C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson7-1", "Lesson7-1\Lesson7-1.csproj", "{EA07A33B-78D7-4177-AC2A-EDC062E866CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson7-1", "Lesson7-1\Lesson7-1.csproj", "{EA07A33B-78D7-4177-AC2A-EDC062E866CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson7-2", "Lesson7-2\Lesson7-2.csproj", "{A674E7E3-6D44-454C-AC2E-237710143826}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{EA07A33B-78D7-4177-AC2A-EDC062E866CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA07A33B-78D7-4177-AC2A-EDC062E866CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA07A33B-78D7-4177-AC2A-EDC062E866CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A674E7E3-6D44-454C-AC2E-237710143826}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A674E7E3-6D44-454C-AC2E-237710143826}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A674E7E3-6D44-454C-AC2E-237710143826}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A674E7E3-6D44-454C-AC2E-237710143826}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

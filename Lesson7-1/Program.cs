@@ -1,7 +1,6 @@
 ﻿using System;
 using System.ComponentModel.Design;
 using System.Transactions;
-
 namespace Lesson7_1
 {
       /* Используя Visual Studio, создайте проект по шаблону Console Application.
@@ -12,17 +11,12 @@ namespace Lesson7_1
          Требуется предоставить пользователю возможность вводить с клавиатуры значения операндов и знак
          арифметической операции, для выполнения вычислений
       */
-
-
     class Program
     {
         static int InputNumber()
-
-            /* 
+            
+        //Метод ввода значения числа типа "int"  с проверкой. 
              
-            Метод ввода значения числа типа "int"  с проверкой. 
-             
-            */
         {
             int flag = 0;
 
