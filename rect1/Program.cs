@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using System;
+using System.ComponentModel.Design;
 
 namespace rectangle
 {
@@ -19,47 +21,38 @@ namespace rectangle
             return 1;
         }
 
+        static int InputOnlyNumber(string str1)
+        {
+
+            int flag1 = 0, numberInt = 0;
+
+            while (flag1 == 0)
+            {
+                Console.Clear();
+                Console.WriteLine($"Введите {str1}");
+                string str = Console.ReadLine();     // Проверка, введено ли число, а не буквы.
+                flag1 = CheckIfNumber(str);
+
+                if (flag1 == 1 && str != "")
+                    numberInt = int.Parse(str);
+                else
+                    flag1 = 0;
+            }
+            return (numberInt);
+        }
         static void Main(string[] args)
         {
-            int width = 0;
-            int flag = 0;
-
-            while (flag == 0)
-            {
-                Console.Clear();
-                Console.WriteLine("Введите ширину");
-                string str = Console.ReadLine();     // Проверка, введено ли число, а не буквы.
-                flag = CheckIfNumber(str);
-
-                if (flag == 1)
-                {
-                    width = int.Parse(str);
-                    break;
-                }
-            }
-            int high = 0;
-            flag = 0;
-            while (flag == 0)
-            {
-                Console.Clear();
-                Console.WriteLine("Введите высоту");
-                string str = Console.ReadLine();
-                flag = CheckIfNumber(str);             // Проверка, введено ли число, а не буквы.
-
-                if (flag == 1)
-                {
-                    high = int.Parse(str);
-                    break;
-                }
-            }
+            int width = InputOnlyNumber("ширину");
+            int high = InputOnlyNumber("высоту");
 
             Console.Clear();
-            
 
-            int startX = 0;
-            int startY = 0;
+            int startX = 0, startY = 0;
 
 
+
+
+            //Прорисовка прямоугольника.
             for (int y = 0; y < high; y++)
             {
                for (int i = 0; i < width; i++)
@@ -68,12 +61,17 @@ namespace rectangle
                     Console.WriteLine("*");
                 }
             }
-                        
+
+
+            int yMax = Console.WindowHeight - high;
+            int xMax = Console.WindowWidth - width;
+
+
             for (; ; )
 
             {
-                int yMax = Console.WindowHeight - high;
-                int xMax = Console.WindowWidth - width;
+                
+                //Проверка, какая нажата клавиша.
 
                 ConsoleKey keyPressed = Console.ReadKey(true).Key;
                 
@@ -84,6 +82,10 @@ namespace rectangle
                     {
                         if (startX > xMax) startX = xMax;
                         if (startX < 1) startX = 1;
+                                               
+                        Console.SetCursorPosition(20, 0);
+                        Console.WriteLine($"startX = {startX} startY = {startY} ");
+
                         Console.SetCursorPosition(startX-1, startY + y);
                         Console.WriteLine("*");
                         Console.SetCursorPosition(startX +width-1, y + startY);
@@ -93,12 +95,17 @@ namespace rectangle
                     if (startX < 0) startX = 1;
                 }
 
+
                 if (keyPressed == ConsoleKey.RightArrow)
                 {
                     
                    for (int i = 0; i < high; i++)
                  {
                         if (startX > (xMax - 1)) startX = xMax - 1;
+
+                        Console.SetCursorPosition(20, 0);
+                        Console.WriteLine($"startX = {startX} startY = {startY} ");
+
                         Console.SetCursorPosition(startX, startY + i);
                         Console.WriteLine(" ");
                         Console.SetCursorPosition((startX + width), (i + startY));
@@ -112,6 +119,7 @@ namespace rectangle
                     Console.WriteLine($"startX = {startX} startY = {startY} high= {high}");
                 }
 
+
                 if (keyPressed == ConsoleKey.UpArrow)
                 {
                    
@@ -119,11 +127,14 @@ namespace rectangle
                     
                     for (int i = 0; i < width; i++)
                     {
+                        Console.SetCursorPosition(20, 0);
+                        Console.WriteLine($"startX = {startX} startY = {startY} ");
+
                         Console.SetCursorPosition (startX+i, startY);
                          Console.WriteLine("*");
                          Console.SetCursorPosition(startX+i, startY + high);
-                         Console.WriteLine(" ");
-            }
+                        Console.WriteLine(" ");
+                    }
 
                    startY--;
                    if (startY < 0) startY = 0;
