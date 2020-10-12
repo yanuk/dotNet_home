@@ -22,13 +22,13 @@ namespace Lesson4
 
             string operand1 = Console.ReadLine();
 
-            string operand2= "-1";
-            
+            string operand2 = "-1";
+
             while (operand2 == "-1")
             {
                 Console.WriteLine("Please, enter operand 2 :");
                 operand2 = Console.ReadLine();
-                                
+
                 if (operand2 == "0")
                 {
                     Console.WriteLine("Попытка деления на ноль.");
@@ -37,7 +37,7 @@ namespace Lesson4
                 }
 
             }
-            
+
             int sign = -1;
 
             while (sign == -1)
@@ -45,22 +45,22 @@ namespace Lesson4
                 Console.WriteLine("Please, enter: + or - or * or / or ^ ");
                 string action = Console.ReadLine();
 
-                   sign = action switch
+                sign = action switch
                 {
-                    "+" => Convert.ToInt32 (operand1) + Convert.ToInt32 (operand2),
+                    "+" => Convert.ToInt32(operand1) + Convert.ToInt32(operand2),
                     "-" => Convert.ToInt32(operand1) - Convert.ToInt32(operand2),
                     "*" => Convert.ToInt32(operand1) * Convert.ToInt32(operand2),
-                    "/" => Convert.ToInt32 (operand1) / Convert.ToInt32 (operand2),
+                    "/" => Convert.ToInt32(operand1) / Convert.ToInt32(operand2),
                     "^" => Convert.ToInt32(operand1) ^ Convert.ToInt32(operand2),
                     _ => -1
-                 };
+                };
                 if (sign != -1)
                 {
-                Console.WriteLine($"{operand1} {action}  {operand2} =  {sign}");
+                    Console.WriteLine($"{operand1} {action}  {operand2} =  {sign}");
                 }
                 else
-                Console.ReadLine();
-              }
+                    Console.ReadLine();
+            }
         }
     }
 }

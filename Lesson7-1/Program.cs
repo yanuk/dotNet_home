@@ -3,20 +3,20 @@ using System.ComponentModel.Design;
 using System.Transactions;
 namespace Lesson7_1
 {
-      /* Используя Visual Studio, создайте проект по шаблону Console Application.
-         Создайте четыре метода для выполнения арифметических операций, с именами: Add – сложение, Sub –
-         вычитание, Mul – умножение, Div – деление.Каждый метод должен принимать два целочисленных
-         аргумента и выводить на экран результат выполнения арифметической операции соответствующей
-         имени метода. Метод деления Div, должен выполнять проверку попытки деления на ноль.
-         Требуется предоставить пользователю возможность вводить с клавиатуры значения операндов и знак
-         арифметической операции, для выполнения вычислений
-      */
+    /* Используя Visual Studio, создайте проект по шаблону Console Application.
+       Создайте четыре метода для выполнения арифметических операций, с именами: Add – сложение, Sub –
+       вычитание, Mul – умножение, Div – деление.Каждый метод должен принимать два целочисленных
+       аргумента и выводить на экран результат выполнения арифметической операции соответствующей
+       имени метода. Метод деления Div, должен выполнять проверку попытки деления на ноль.
+       Требуется предоставить пользователю возможность вводить с клавиатуры значения операндов и знак
+       арифметической операции, для выполнения вычислений
+    */
     class Program
     {
         static int InputNumber()
-            
+
         //Метод ввода значения числа типа "int"  с проверкой. 
-             
+
         {
             int flag = 0;
 
@@ -29,7 +29,7 @@ namespace Lesson7_1
                 flag = 1;
                 for (int i = 0; i < str.Length; i++)
                 {
-                    if (char.IsDigit(str[i]) == false || str=="")
+                    if (char.IsDigit(str[i]) == false || str == "")
                     {
                         flag = 0;
                         str = "";
@@ -52,7 +52,7 @@ namespace Lesson7_1
             double sum = firstOperand + secondOperand;
             return (sum);
         }
-        static double Sub (in double firstOperand, in double secondOperand)
+        static double Sub(in double firstOperand, in double secondOperand)
         {
             double sum = firstOperand - secondOperand;
             return (sum);
@@ -64,26 +64,26 @@ namespace Lesson7_1
             return (mult);
         }
 
-        static double Div (in double firstOperand, ref double secondOperand)
+        static double Div(in double firstOperand, ref double secondOperand)
         {
             double second = secondOperand;
 
-           while (secondOperand == 0)
+            while (secondOperand == 0)
             {
-              // проверка знаменателя на 0. Если ноль, то новый ввод числа.
-                second = Convert.ToDouble (InputNumber());
+                // проверка знаменателя на 0. Если ноль, то новый ввод числа.
+                second = Convert.ToDouble(InputNumber());
                 if (second != 0) secondOperand = second;
             }
-                double mult = firstOperand / second;
-                return (mult);
+            double mult = firstOperand / second;
+            return (mult);
         }
 
         static void Main(string[] args)
-            {
-                double firstOperand = InputNumber();
-                double secondOperand = InputNumber();
-                double finalValue=0;
-                string action = "";
+        {
+            double firstOperand = InputNumber();
+            double secondOperand = InputNumber();
+            double finalValue = 0;
+            string action = "";
 
 
             while (action != "+" && action != "-" && action != "*" && action != "/")
@@ -93,12 +93,12 @@ namespace Lesson7_1
                 action = Console.ReadLine();
             }
 
-                  if (action == "+") finalValue = Sum (firstOperand, secondOperand);
-                  if (action == "-") finalValue = Sub (firstOperand, secondOperand);
-                  if (action == "*") finalValue = Mul (firstOperand, secondOperand);
-                  if (action == "/") finalValue = Div (firstOperand, ref secondOperand);
-                             
-            Console.Clear();    
+            if (action == "+") finalValue = Sum(firstOperand, secondOperand);
+            if (action == "-") finalValue = Sub(firstOperand, secondOperand);
+            if (action == "*") finalValue = Mul(firstOperand, secondOperand);
+            if (action == "/") finalValue = Div(firstOperand, ref secondOperand);
+
+            Console.Clear();
             Console.WriteLine($"\n\n  {firstOperand} {action} {secondOperand} = {finalValue}");
             Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         }

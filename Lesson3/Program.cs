@@ -7,16 +7,16 @@ namespace Lesson3
     {
         static void Main(string[] args)
         {
-            int  x = 10;
-            int  y = 12;
-            int  z = 3;
-            double  average;
+            int x = 10;
+            int y = 12;
+            int z = 3;
+            double average;
 
-            x+= y - x++ * z;
+            x += y - x++ * z;
             Console.WriteLine(x);
             z = --x - y * 5;
             Console.WriteLine(z);
-            y/= x + 5%z;
+            y /= x + 5 % z;
             Console.WriteLine(y);
             z = x++ + y * 5;
             Console.WriteLine(z);
@@ -31,7 +31,7 @@ namespace Lesson3
             x = 10;
             y = 6;
             z = 12;
-            average = ( (double)x + (double)y + (double)z) / 3; ;
+            average = ((double)x + (double)y + (double)z) / 3; ;
             Console.WriteLine(average);
 
             //Задание 3
@@ -43,7 +43,7 @@ namespace Lesson3
             double pi = 3.14159;
             double areaOfTheCircle;
             areaOfTheCircle = pi * radius * radius;
-            Console.WriteLine ("\nРадиус: {0} \nПлощадь круга: {1}", radius, areaOfTheCircle);
+            Console.WriteLine("\nРадиус: {0} \nПлощадь круга: {1}", radius, areaOfTheCircle);
             Console.ReadLine();
 
 
@@ -65,7 +65,7 @@ namespace Lesson3
 
 
 
-            
+
         }
     }
 }
