@@ -18,33 +18,22 @@ namespace Lesson7_1
         //Метод ввода значения числа типа "int"  с проверкой. 
 
         {
-            int flag = 0;
+            bool success = false;
 
-            while (flag == 0)
+            while (!success)
             {
                 Console.Clear();
                 Console.WriteLine("Введите число: ");
                 string str = Console.ReadLine();
 
-                flag = 1;
-                for (int i = 0; i < str.Length; i++)
+                success = Int32.TryParse(str, out int number);
+
+                if (success)
                 {
-                    if (char.IsDigit(str[i]) == false || str == "")
-                    {
-                        flag = 0;
-                        str = "";
-                        break;
-                    }
-                }
-                if (str == "") flag = 0;
-                if (flag == 1)
-                {
-                    int number = int.Parse(str);
                     return (number);
                 }
-                flag = 0;
             }
-            return (-1);
+            return (0);
         }
 
         static double Sum(in double firstOperand, in double secondOperand)
@@ -66,22 +55,19 @@ namespace Lesson7_1
 
         static double Div(in double firstOperand, ref double secondOperand)
         {
-            double second = secondOperand;
-
-            while (secondOperand == 0)
+            if (secondOperand == 0)
             {
                 // проверка знаменателя на 0. Если ноль, то новый ввод числа.
-                second = Convert.ToDouble(InputNumber());
-                if (second != 0) secondOperand = second;
+                secondOperand = InputNumber();
             }
-            double mult = firstOperand / second;
+            double mult = firstOperand / secondOperand;
             return (mult);
         }
 
         static void Main(string[] args)
         {
-            double firstOperand = InputNumber();
-            double secondOperand = InputNumber();
+            double firstOperand = Convert.ToDouble(InputNumber());
+            double secondOperand = Convert.ToDouble(InputNumber());
             double finalValue = 0;
             string action = "";
 
@@ -99,8 +85,8 @@ namespace Lesson7_1
             if (action == "/") finalValue = Div(firstOperand, ref secondOperand);
 
             Console.Clear();
-            Console.WriteLine($"\n\n  {firstOperand} {action} {secondOperand} = {finalValue}");
-            Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+            Console.WriteLine($"{Environment.NewLine} {Environment.NewLine} {firstOperand} {action} {secondOperand} = {finalValue}");
+            Console.WriteLine($"{Environment.NewLine} {Environment.NewLine}{Environment.NewLine}{Environment.NewLine}");
         }
     }
 }

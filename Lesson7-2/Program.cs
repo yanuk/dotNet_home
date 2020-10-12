@@ -18,7 +18,7 @@ namespace Lesson7_2
             double summa = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Курс валюты: ");
             double kurs = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine($"\n\n\n\n\n За {summa} единиц валюты Вы получите : {kurs * summa}\n\n\n\n\n\n\n ");
+            Console.WriteLine($"{Environment.NewLine}{Environment.NewLine} За {summa} единиц валюты Вы получите : {kurs * summa}{Environment.NewLine}{Environment.NewLine}{Environment.NewLine} ");
         }
     }
 }
