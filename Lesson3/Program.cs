@@ -61,11 +61,7 @@ namespace Lesson3
             volumeCilinder = pi * radiusCililinder * radiusCililinder * highCilinder;
 
             Console.WriteLine("\nОбъем V цилиндра {0} \nПлощадь поверхности: {1}", radius, areaOfTheCircle);
-
-
-
-
-
         }
     }
 }
+

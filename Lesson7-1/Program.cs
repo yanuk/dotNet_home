@@ -79,10 +79,10 @@ namespace Lesson7_1
                 action = Console.ReadLine();
             }
 
-            if (action == "+") finalValue = Sum(firstOperand, secondOperand);
-            if (action == "-") finalValue = Sub(firstOperand, secondOperand);
-            if (action == "*") finalValue = Mul(firstOperand, secondOperand);
-            if (action == "/") finalValue = Div(firstOperand, ref secondOperand);
+            if (action == "+") { finalValue = Sum(firstOperand, secondOperand); }
+            if (action == "-") { finalValue = Sub(firstOperand, secondOperand); }
+            if (action == "*") { finalValue = Mul(firstOperand, secondOperand); }
+            if (action == "/") { finalValue = Div(firstOperand, ref secondOperand); }
 
             Console.Clear();
             Console.WriteLine($"{Environment.NewLine} {Environment.NewLine} {firstOperand} {action} {secondOperand} = {finalValue}");

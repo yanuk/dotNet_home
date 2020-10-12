@@ -14,8 +14,10 @@ namespace Lesson5_1
                 {
                     {
                         if (char.IsDigit(str[i]) == true)
+                        {
                             //введено число
                             return (true);
+                        }
                     }
                 }
                 //введено не число
@@ -36,9 +38,11 @@ namespace Lesson5_1
                 byte number = Convert.ToByte(str);
                 byte port = (byte)(number & 0x01);
                 if (port == 0)
+                {
                     Console.WriteLine($"Четное число");
+                }
                 else
-                    Console.WriteLine($"Не четное число");
+                    Console.WriteLine($"Нечетное число");
             }
             else
                 Console.WriteLine("Вы ввели не число");
